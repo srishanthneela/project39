@@ -1,5 +1,5 @@
 var database;
-var back_img;
+var back_img,back2_img;
 var gameState =0;
 var playerCount = 0;
 var allPlayers;
@@ -14,6 +14,7 @@ var player_img;
 
 
 function preload(){
+  back2_img = loadImage("images/background.png")
   back_img = loadImage("images/jungle.jpg");
   player_img = loadImage("images/basket2.png");
   fruit1_img = loadImage("images/apple2.png");
@@ -33,8 +34,14 @@ function setup() {
 }
 
 function draw() {
-  background(back_img);
   
+  if(gameState === 0){
+    background(back2_img);
+  }
+    else{
+      background(back_img);
+    }
+
    if (playerCount === 2) {
      game.update(1);
    }
@@ -47,3 +54,4 @@ function draw() {
      game.end();
    }
 }
+
